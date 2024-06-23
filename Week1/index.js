@@ -1,5 +1,7 @@
 const express = require('express')
+var cors = require('cors')
 const app = express()
+app.use(cors())
 
 app.get('/', function (req, res) {
     res.send('Hello World')
@@ -36,6 +38,8 @@ app.get('/sound/:name',(req, res)=>{
     
     else
         res.json({'sound' : '알수없음'})
+    
+    console.log(name)
 })
 
 app.post('/user/:id', function (req, res) {
