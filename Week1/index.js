@@ -12,4 +12,38 @@ app.get('/cat', function (req, res) {
         'sound' : "야옹"
     })
 })
+app.get('/user/:id', function (req, res) {
+    // const q = req.params
+    // console.log(q.id)
+    
+    const q = req.query;
+    console.log(q);
+    
+    res.send({'userid' : q.id})
+})
+
+app.get('/sound/:name',(req, res)=>{
+    const {name} = req.params
+    
+    if(name == "dog")
+        res.json({'sound' : '멍멍'})
+    
+    else if(name == "cat")
+        res.json({'sound' : '야용'})
+    
+    else if(name == "pig")
+        res.json({'sound' : '꿀꿀'})
+    
+    else
+        res.json({'sound' : '알수없음'})
+})
+
+app.post('/user/:id', function (req, res) {
+    const p = req.parms;
+    console.log(p);
+    const b = req.body;
+    console.log(b);
+
+    res.send({'message' : 'Hello'})
+})
 app.listen(3000)
