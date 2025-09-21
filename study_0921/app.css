@@ -1,0 +1,12 @@
+.outer{
+    display: inline-block;
+    background-color: green;
+    margin : 100px;
+    border : 2px solid #ff0000;
+}
+.inner{
+    display: inline-block;
+    background-color: coral;
+    margin : 50px;
+    padding : 100px;
+}

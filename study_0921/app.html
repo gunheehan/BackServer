@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./app.css">
+  <title>타이틀</title>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner">
+      Hello
+    </div>
+  </div>
+  <h1>여기입니다.</h1>
+  <script>
+    const userMsg = prompt();
+    const userNumber = parseInt(userMsg);
+    const result = userNumber % 2;
+    document.querySelector('h1').textContent = result ? "홀수입니다." : "짝수입니다.";
+    
+    // const alh1 = document.querySelectorAll('h1');
+    // alh1.forEach((elem, index) => {elem.textContent = index})
+  </script>
+</body>
+</html>
