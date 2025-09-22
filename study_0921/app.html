@@ -2,23 +2,50 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./app.css">
+  <link href="./app.js">
   <title>타이틀</title>
 </head>
 <body>
-  <div class="outer">
-    <div class="inner">
-      Hello
-    </div>
+  <h1>숫자를 입력하세요</h1>
+  <div>
+    <input id='input_num' type ="text"/>
+    <button id='btn_submit'>제출</button>
+    <button id='btn_chgClr'>색바꾸기</button>
   </div>
-  <h1>여기입니다.</h1>
+  <h1 id='result'></h1>
   <script>
-    const userMsg = prompt();
-    const userNumber = parseInt(userMsg);
-    const result = userNumber % 2;
-    document.querySelector('h1').textContent = result ? "홀수입니다." : "짝수입니다.";
+    const clr_array = ['red', 'green', 'blue'];
+    let clr_idx = 0;
+    const w_btn_submin = document.querySelector('#btn_submit');
+    const w_btn_chgClr = document.querySelector('#btn_chgClr');
+    const w_input = document.querySelector('#input_num')
+    const w_h1_result = document.querySelector('#result')
     
-    // const alh1 = document.querySelectorAll('h1');
-    // alh1.forEach((elem, index) => {elem.textContent = index})
+    w_btn_submin.addEventListener('click',()=>{
+      const temp = parseInt(w_input.value);
+      w_h1_result.style.color = 'black';
+      
+      if(!temp){
+        w_h1_result.textContent = "숫자가 아닌 수를 입력하였습니다.";
+        w_h1_result.style.color = 'red';
+      }
+      else{
+        if(temp % 2 == 0){
+          w_h1_result.textContent = "짝수입니다.";
+        }
+        else{
+          w_h1_result.textContent = "홀수입니다.";
+        }
+      }
+      
+      w_input.value = '';
+      w_input.focus();
+    });
+    
+    w_btn_chgClr.addEventListener('click', ()=>{
+      clr_idx = (clr_idx + 1) % clr_array.length;
+      w_h1_result.style.color = clr_array[clr_idx];
+    });
   </script>
 </body>
 </html>
