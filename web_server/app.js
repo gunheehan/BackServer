@@ -13,7 +13,7 @@ app.listen(3000, ()=>{
 })
 
 app.get('/', (req, res)=>{
-    res.sendFile(__dirname + '/pages/index.html')
+    res.sendStatus(500)
 })
 
 app.get('/about',(req, res)=>{
