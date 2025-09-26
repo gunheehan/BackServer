@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2')
+const bcrypt = require('bcrypt');
 const path = require('path')
 const static = require('serve-static')
 const dbconfig = require('./config/dbconfig.json')
@@ -26,7 +27,7 @@ app.post('/process/adduser', (req, res)=>{
     const paramAge = req.body.age;
     const paramPassword = req.body.password;
     
-    pool.getConnection((error, conn)=>{
+    pool.getConnection(async (error, conn)=>{
         if(error){
             conn.release();
             console.log('Mysql getconnection error, aborted : ' + error);
@@ -37,8 +38,9 @@ app.post('/process/adduser', (req, res)=>{
         }
 
         console.log('database connect success');
+        const hashedPassword = await bcrypt.hash(paramPassword, 10);
         const sql = 'INSERT INTO users (id, name, age, password) VALUES (?, ?, ?, ?)';
-        const params = [paramId, paramName, paramAge, paramPassword];
+        const params = [paramId, paramName, paramAge, hashedPassword];
 
         console.log('SQL Query:', sql);  // ⭐️ 이렇게 수정
         console.log('Parameters:', params);
