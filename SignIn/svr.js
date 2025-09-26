@@ -21,6 +21,53 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('public', static(path.join(__dirname, 'public')))
 
+app.post('/process/login',(req, res)=>{
+    const paramId = req.body.id;
+    const paramPassword = req.body.password;
+    
+    console.log('로그인 요청 : ' + paramId + ' ' + paramPassword);
+    
+    pool.getConnection(async (err,conn)=>{
+        if(err){
+            conn.release();
+            console.log('Mysql getconnection error, aborted : ' + error);
+            res.writeHead('200',{'Content-Type':'text/html; charset=utf8'});
+            res.write('<h1>DB 연결실패</h1>');
+            res.end();
+            return;
+        }
+
+        conn.query("SELECT id, name, password FROM users WHERE id = ?",
+            [paramId],
+            async (err, rows) => {
+                conn.release();
+                if (err) {
+                    console.dir(err);
+                    res.writeHead('200', {'Content-Type': 'text/html; charset=utf8'})
+                    res.write('<h1> SQL query 실행 실패</h1>');
+                    res.end();
+                    return;
+                }
+
+                if (rows.length > 0) {
+                    const isPasswordValid = await bcrypt.compare(paramPassword, rows[0].password);
+                    if(isPasswordValid){
+                        console.log('사용자 [%s], 패스워드 찾음', rows[0].name);
+                        res.writeHead('200', {'Content-Type': 'text/html; charset=utf8'});
+                        res.write('<h2>로그인 성공</h2>');
+                        res.end();
+                        return;
+                    }
+
+                } 
+                    console.log('아이디 [%s], 패스워드 없음', paramId);
+                    res.writeHead('200', {'Content-Type': 'text/html; charset=utf8'});
+                    res.write('<h2>로그인 실페</h2>');
+                    res.end();
+            })
+    })
+})
+
 app.post('/process/adduser', (req, res)=>{
     const paramId = req.body.id;
     const paramName = req.body.name;
