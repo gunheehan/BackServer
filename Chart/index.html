@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <canvas id="myChart" width="400" height="320"></canvas>
+</body>
+
+
+<script>
+    const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June']
+    const data ={
+        labels : labels,
+        datasets :[{
+            label: 'My First dataset',
+            borderColor: 'rgb(255,99,132)',
+            data: [0, 10, 5, 2, 20, 30]
+        }]
+    }
+    
+    const config = {
+        type: 'line',
+        data: data,
+        options:{
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    }
+    
+    const myChart = new Chart(document.getElementById('myChart'), config)
+</script>
+</html>
