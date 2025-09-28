@@ -64,7 +64,7 @@ app.post('/chartdatafromdb',(req, res)=>{
                 resData.result = 'ok'
                 rows.forEach((val)=>{
                     resData.temp.push(val.temperature)
-                    resData.reg_data.push(val.reg_date)
+                    resData.reg_date.push(val.reg_date)
                 })
             }
             else{

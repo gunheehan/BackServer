@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart" width="400" height="320"></canvas>
+    </div>
+    <div>
+        <label>빌딩 id</label>
+        <input type="number" id="buildingid">
+        <button id ="chartdatafromdb">그래프 그리기</button>
+    </div>
+</body>
+
+
+<script>
+    let myChart = undefined
+    const btn = document.getElementById('chartdatafromdb')
+    const bid = document.getElementById('buildingid')
+    btn.addEventListener('click', ()=>{
+        console.log('building id : %s', bid.value)
+        chartDataFromDB(bid.value)
+    })
+    
+    const chartDataFromDB = (bid)=>{
+        fetch('http://localhost:3001/chartdatafromdb',{
+            method: 'post',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                'bid':bid
+            })
+        }).then((res)=>res.json())
+            .then((res)=>{
+                if(res.result != 'ok'){
+                    console.log('result is not ok');
+                    return;
+                }
+                
+                let reg_data_obj = []
+                let temp_obj = []
+                
+                for(let i = 0; i < res.temp.length; i++){
+                    reg_data_obj.push(res.reg_date[i])
+                    temp_obj.push(res.temp[i])
+                }
+                
+                const data = {
+                    labels: reg_data_obj,
+                    datasets: [{
+                        label: '온도',
+                        borderColor: 'rgb(255,99,132)',
+                        data: temp_obj
+                    }]
+                }
+                const config ={
+                    type: 'line',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                }
+                
+                if(myChart !== undefined){
+                    myChart.destroy()
+                }
+                
+                myChart = new Chart(document.getElementById('myChart'), config)
+            })
+    }
+</script>
+</html>
