@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    
+    <style>
+        body{
+            color: #000;
+        }
+        
+        a{
+            color:#000;
+            text-decoration: none;
+            border: 1px solid red;
+            margin: 50px;
+        }
+        
+        .block-container{
+            border: 1px solid blue;
+            height: 100px;
+            width: 400px;
+            margin: auto;
+            box-sizing: border-box;
+        }
+        
+        .inlineblock-container{
+            border: 1px solid green;
+            display: inline-block;
+            box-sizing: border-box;
+            margin: 5px;
+            text-align: center;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.google.com">구글</a>
+    <a href="http://www.daum.net">다음</a>
+
+    <div class="block-container"></div>
+    <div class="block-container"></div>
+    <div class="block-container"></div>
+
+    <div class="inlineblock-container">1111</div>
+    <div class="inlineblock-container">2222</div>
+    <div class="inlineblock-container">3333</div>
+</body>
+</html>
+
+<!--
+인라인(inline)
+- 한줄에 여러개 배치
+- 기본 너비값은 컨턴츠의 너비값
+- 크기값을 가질 수 없음
+- 상하 마진은 가질 수 없음
+
+블록(block)
+- 한줄에 한개만 배치
+- 기본 너비값은 100%
+- 크기값을 가질 수 있음
+- 상하좌우 마진 가질 수 있음
+
+인라인블록(inline-block)
+- 한줄에 여러개 배치
+- 기본 너비값은 컨텐츠의 너비값
+- 크기값을 가질 수 있음
+- 상하 마진은 가질 수 있음
+-->
