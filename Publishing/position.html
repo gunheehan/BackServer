@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    
+    <style>
+        .parent{
+            background-color: dodgerblue;
+            width: 600px;
+            height: 300px;
+            position: relative;
+        }
+        
+        .child{
+            background-color: crimson;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .container{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        
+        .box{
+            position: absolute;
+            background-color: dodgerblue;
+            width: 100px;
+            height: 100px;
+            right: 0;
+        }
+        
+        .center-container{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        
+        .box-center{
+            background-color: dodgerblue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .out-container{
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        
+        .box-out{
+            background-color: dodgerblue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+    </style>
+</head>
+<body>
+    <!--자식 부모 관계-->
+    <div class="parent">
+        <div class="child">
+            
+        </div>
+    </div>
+
+    <!--원하는 위치에 정렬-->
+    <div class="container">
+        <div class="box">
+            
+        </div>
+    </div>
+
+    <!--중앙 위치에 정렬-->
+    <div class="center-container">
+        <div class="box-center">
+            
+        </div>
+    </div>
+
+    <!--밖에 정렬-->
+    <div class="out-container">
+        <div class="box-out">
+            
+        </div>
+    </div>
+
+</body>
+</html>
+
+<!--
+#자식 부모 관계
+포지셔닝
+부모요소 position : relative
+자식요소 position : absolute
+
+position을 선언해야
+top, bottom, left, right 속성사용 가능
+top: 50%;
+bottom: 0;
+left: 50%;
+right: 0;
+
+#원하는 위치에 정렬
+위치 정렬
+좌측 상단 정렬 : 기본 값
+좌측 하단 정렬 : bottom: 0;
+우측 상단 정렬 : right: 0;
+우측 하단 정렬 : bottom: 0; right: 0;
+
+#중앙 위치에 정렬
+브라우저의 크기에 관계없이 항상 수직 수평 중앙 정렬하기
+position: absolute
+top: 50%
+left: 50%
+transform: translate(-50%, -50%) 모든 좌표는 상단 좌측임으로 블록을 정중앙에 위치시키기 위해 조정
+
+#부모요소 밖으로 위치시키기
+좌측 하단 : top: 100%
+우측 하단 : top: 100%; left: 100%
+우측 상단 : right: 100%
+absolute에서 %로 정보를 받아올때 크기는 relative의 크기를 받아와서 정렬시킨다
+예) 부모가 300px일 경우 자식에서 %로 받아올 경우 300px를 받아오는 것이다.
+50%일 경우 150px
+
+주의할 점은 자식객체의 크기는 고려되지 않고 포지션만 고려된 위치로서 정중앙과 같아 정렬을 시키려면
+            transform: translate(-50%, 0%);를 추가로 설정해 주어야 한다.  ({좌우},{상하})
+-->
