@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background-color: #fff;
+            color: #333;
+        }
+        a{
+            color: #333;
+            text-decoration: none;
+            transition: .5s;
+        }
+        a:hover{
+           color: dodgerblue;
+            text-decoration: underline;
+        }
+        
+        .box-border{
+            color: #333;
+            text-decoration: none;
+            text-align: center;
+            border: 1px solid #ccc;
+            display: inline-block;
+            width: 120px;
+            padding: 5px;
+            border-radius: 5px;
+            transition: .5s;
+        }
+        
+        .box-border:hover{
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="#none">법적 고지</a>
+    <a href="#none">개인정보 취급방침</a>
+    <a href="#none">개인정보 처리방침</a>
+
+    <a class="box-border" href="http://www.naver.com">네이버</a>
+    <a class="box-border" href="http://www.naver.com">네이버2</a>
+    <a class="box-border" href="http://www.naver.com">네이버3</a>
+</body>
+</html>
+
+<!--
+:hover
+가상클래스로서 마우스가 hover되었을때의 동작을 정의한다.
+예) 선택자:hover{...}
+
+transition: .5s
+상태 변화에 따른 애니메이션 동작(변화 상태 속도)
+주의사항 : hover가 아닌 이전 상테에 지정 필요
+hover에 지정시 마우스의 hover가 종료될때 동일한 애니메이션 효과가 일어나지 않음
+
+-->
