@@ -28,12 +28,36 @@
             border: 1px solid #000;
         }
         
-        .box{
+        .box1{
             position: absolute;
             background-color: dodgerblue;
             width: 100px;
             height: 100px;
+        }
+
+        .box2{
+            position: absolute;
+            background-color: gold;
+            width: 100px;
+            height: 100px;
             right: 0;
+        }
+
+        .box3{
+            position: absolute;
+            background-color: #cc4f4f;
+            width: 100px;
+            height: 100px;
+            bottom: 0;
+        }
+
+        .box4{
+            position: absolute;
+            background-color: purple;
+            width: 100px;
+            height: 100px;
+            right: 0;
+            bottom: 0;
         }
         
         .center-container{
@@ -60,7 +84,7 @@
             border: 1px solid #000;
         }
         
-        .box-out{
+        .box-out1{
             background-color: dodgerblue;
             width: 100px;
             height: 100px;
@@ -69,35 +93,51 @@
             left: 50%;
             transform: translate(-50%, 0%);
         }
+
+        .box-out2{
+            background-color: gold;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 100%;
+            left: 100%;
+            transform: translate(-100%, 0%);
+        }
+
+        .box-out3{
+            background-color: purple;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 100%;
+        }
     </style>
 </head>
 <body>
     <!--자식 부모 관계-->
     <div class="parent">
         <div class="child">
-            
         </div>
     </div>
 
     <!--원하는 위치에 정렬-->
     <div class="container">
-        <div class="box">
-            
-        </div>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
     </div>
 
     <!--중앙 위치에 정렬-->
     <div class="center-container">
-        <div class="box-center">
-            
-        </div>
+        <div class="box-center"></div>
     </div>
 
     <!--밖에 정렬-->
     <div class="out-container">
-        <div class="box-out">
-            
-        </div>
+        <div class="box-out1"></div>
+        <div class="box-out2"></div>
+        <div class="box-out3"></div>
     </div>
 
 </body>
