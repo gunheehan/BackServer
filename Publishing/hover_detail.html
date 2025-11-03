@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .items{
+            border: 1px solid;
+            text-align: center;
+        }
+        .item{
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            position: relative;
+        }
+        .caption{
+            width: inherit;
+            height: inherit;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            align-content: center;
+            opacity: 0;
+            transition: .5s;
+        }
+        .caption a{
+            color: #fff;
+            text-decoration: none;
+            background-color: teal;
+            padding: 7px;
+            border-radius: 3px;
+        }
+        .caption a:hover{
+            background-color: #fff;
+            color: #000;
+        }
+        .item:hover .caption{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item">
+            <img src="./images/weights.png" alt="" style="width: 300px; height: 300px">
+            <div class="caption">
+                <h2>Rirakuma doll 25cm</h2>
+                <p>most popular</p>
+                <p>Price : <s>$12</s> -> $10</p>
+                <a href="#none">View Details</a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./images/weights.png" alt="" style="width: 300px; height: 300px">
+            <div class="caption">
+                <h2>Rirakuma doll 25cm</h2>
+                <p>most popular</p>
+                <p>Price : <s>$12</s> -> $10</p>
+                <a href="#none">View Details</a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./images/weights.png" alt="" style="width: 300px; height: 300px">
+            <div class="caption">
+                <h2>Rirakuma doll 25cm</h2>
+                <p>most popular</p>
+                <p>Price : <s>$12</s> -> $10</p>
+                <a href="#none">View Details</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
