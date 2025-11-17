@@ -1,10 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .icon{
+            margin: 10px;
+            position: relative;
+        }
+        .icon img{
+            width: 125px;
+            height: 125px;
+        }
+        .icon span{
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -110%);
+            opacity: 0;
+            transition: .5s;
+            visibility: hidden; 
+        }
+        .icon span:after {
+            content: '';
+            position: absolute;
+            background-color: #000;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            bottom: -5px;
+            left: 50%;
+        }
+        .icon:hover span{
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="container">
+        <div class="icon">
+            <img src="./images/weights.png">
+            <span>
+                This HTML Tutorial contains hunderds of
+                HTML examples.
+            </span>
+        </div>
+        <div class="icon">
+            <img src="./images/weights.png">
+            <span>
+                This HTML Tutorial contains hunderds of
+                HTML examples.
+            </span>
+        </div>
+        <div class="icon">
+            <img src="./images/weights.png">
+            <span>
+                This HTML Tutorial contains hunderds of
+                HTML examples.
+            </span>
+        </div>
+        <div class="icon">
+            <img src="./images/weights.png">
+            <span>
+                This HTML Tutorial contains hunderds of
+                HTML examples.
+            </span>
+        </div>
+    </div>
 </body>
 </html>
