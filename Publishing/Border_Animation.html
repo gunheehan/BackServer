@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>보더 애니메이션 네비게이션 호버 이펙트</title>
+  <style>
+    body{
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .gnb li a{
+      color: #000;
+      text-decoration: none;
+    }
+    .gnb{
+      list-style: none;
+      margin: 0;
+      width: 600px;
+      background-color: #fff;
+      border-right: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+      padding: 50px 30px;
+      display: flex;
+    }
+    .gnb li{
+      flex: 1;
+      text-align: center;
+    }
+    .gnb li a{
+      font-size: 14px;
+      position: relative;
+    }
+    .gnb li a:before{
+      content:'';
+      position: absolute;
+      background-color: dodgerblue;
+      height: 2px;
+      width: 0;
+      bottom: -2px;
+      transition: .5s;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .gnb li a:hover:before{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <ul class="gnb">
+    <li><a href="#none">HOME</a></li>
+    <li><a href="#none">ABOUNT</a></li>
+    <li><a href="#none">SERVICE</a></li>
+    <li><a href="#none">PORTFOLIO</a></li>
+    <li><a href="#none">CONTACT</a></li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>앱 UI 레이어 3D 호버 애니메이션</title>
+    <style>
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .app-ui{
+            border: 1px solid red;
+            width: 340px;
+            height: 640px;
+            transform: rotate(-30deg) skewX(20deg);
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+            transition: .5s;
+            background-color: #eee;
+        }
+        .app-ui:hover{
+            box-shadow: -50px 100px 60px rgba(0, 0, 0, .3);
+        }
+        .app-ui img{
+            position: absolute;
+            transition: .5s;
+        }
+        .app-ui:hover img:nth-child(1){
+            opacity: .4;
+        }
+        .app-ui:hover img:nth-child(2){
+            transform: translate(40px, -40px);
+            opacity: .6;
+        }
+        .app-ui:hover img:nth-child(3){
+            transform: translate(80px, -80px);
+            opacity: .8;
+        }
+        .app-ui:hover img:nth-child(4){
+            transform: translate(120px, -120px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="app-ui">
+            <img src="./images/app-ui-01.jpg" alt="">
+            <img src="./images/app-ui-02.jpg" alt="">
+            <img src="./images/app-ui-03.jpg" alt="">
+            <img src="./images/app-ui-04.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

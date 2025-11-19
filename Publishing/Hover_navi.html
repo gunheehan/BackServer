@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>위 아래 분리되는 호버 네비게이션 이펙트</title>
+  <style>
+    body{
+      background-color: #222;
+      font-size: 15px;
+      line-height: 1.5em;
+      color: #fff;
+    }
+    a{
+      color: #fff;
+      text-decoration: none;
+    }
+    .items{
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+    }
+    .item{
+      width: 300px;
+      height: 200px;
+      display: inline-block;
+      position: relative;
+      margin: 10px;
+    }
+    .front, .back{
+      position: absolute;
+      text-align: center;
+      height: inherit;
+      transition: .5s;
+      top: 0;
+    }
+    .front{
+      background-color: #333;
+      width: 100%;
+      z-index: 1;
+    }
+    .front img{
+      width: 150px;
+      height: 150px;
+    }
+    .item:hover .front img{
+      animation: ani 1s linear infinite;
+    }
+    .front h2{
+      margin-top: 0;
+    }
+    .back{
+      background-color: #fff;
+      color: #000;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+    }
+    .back a{
+      background-color: yellowgreen;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 20px;
+    }
+    .back a:hover{
+      background-color: #000;
+    }
+    .item:hover .front{
+      top:-50%;
+    }
+    .item:hover .back{
+      top:50%;
+      opacity: 1;
+    }
+    
+    @keyframes ani {
+      0%, 100%{
+        transform: scale(.9);
+      }
+      50%{
+        transform: scale(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="items">
+    <div class="item">
+      <div class="front">
+        <img src="./images/weights.png" alt="">
+        <h2>Mars</h2>
+      </div>
+      <div class="back">
+        <p>
+          화성은 태양계의 네 번째 행성이다. 4개의 지구형 행성 중 하나다.
+          동양권에서는 불을 뜻하는 화를 써서 화성이라고 부른다.
+        </p>
+        <a href="#none">Read More</a>
+      </div>
+    </div>
+    <div class="item">
+      <div class="front">
+        <img src="./images/weights.png" alt="">
+        <h2>Mars</h2>
+      </div>
+      <div class="back">
+        <p>
+          화성은 태양계의 네 번째 행성이다. 4개의 지구형 행성 중 하나다.
+          동양권에서는 불을 뜻하는 화를 써서 화성이라고 부른다.
+        </p>
+        <a href="#none">Read More</a>
+      </div>
+    </div>
+    <div class="item">
+      <div class="front">
+        <img src="./images/weights.png" alt="">
+        <h2>Mars</h2>
+      </div>
+      <div class="back">
+        <p>
+          화성은 태양계의 네 번째 행성이다. 4개의 지구형 행성 중 하나다.
+          동양권에서는 불을 뜻하는 화를 써서 화성이라고 부른다.
+        </p>
+        <a href="#none">Read More</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
